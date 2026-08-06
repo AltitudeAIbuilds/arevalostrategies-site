@@ -13,7 +13,7 @@
 <meta property="og:image" content="https://arevalostrategies.com/assets/apaches.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='9'%20fill='%230a1628'/%3E%3Ccircle%20cx='32'%20cy='32'%20r='23'%20fill='none'%20stroke='%23c9a84c'%20stroke-width='2.5'/%3E%3Ctext%20x='32'%20y='39.5'%20font-family='monospace'%20font-weight='bold'%20font-size='19'%20fill='%23c9a84c'%20text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Brian J. Ar\u00e9valo Ramos","alternateName":"Brian Arevalo","jobTitle":"AI Strategy Consultant","url":"https://arevalostrategies.com","address":{"@type":"PostalAddress","addressLocality":"Savannah","addressRegion":"GA","addressCountry":"US"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"UC Berkeley Haas School of Business"},{"@type":"CollegeOrUniversity","name":"Inter-American University of Puerto Rico"}],"knowsAbout":["AI Strategy","Defense Technology","Autonomous Systems","UAV Integration","DoD Procurement"],"sameAs":["https://www.linkedin.com/in/brianjarevalo/"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Brian J. Ar\u00e9valo Ramos","alternateName":"Brian Arevalo","jobTitle":"AI Strategy Consultant","url":"https://arevalostrategies.com","address":{"@type":"PostalAddress","addressLocality":"Berkeley","addressRegion":"CA","addressCountry":"US"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"UC Berkeley Haas School of Business"},{"@type":"CollegeOrUniversity","name":"Inter-American University of Puerto Rico"}],"knowsAbout":["AI Strategy","Defense Technology","Autonomous Systems","UAV Integration","DoD Procurement"],"sameAs":["https://www.linkedin.com/in/brianjarevalo/"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -124,6 +124,8 @@
   .seclabel::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
   h2{font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.01em;line-height:1.15;margin-bottom:14px}
   .lead{color:var(--dim);max-width:640px;font-size:17px}
+  .lead a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line)}
+  .lead a:hover{color:var(--gold-hi)}
 
   /* reveal on scroll */
   .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
@@ -206,7 +208,7 @@
   .credbar span + span::before{content:"✦";color:var(--gold);font-size:9px;margin-right:18px}
 
   /* ---------- numbers / MFD readouts ---------- */
-  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+  .nums{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:54px}
   .mfd{
     position:relative;background:var(--panel);border:1px solid var(--line-dim);
     padding:34px 28px 28px;border-radius:4px;overflow:hidden;
@@ -225,7 +227,7 @@
   /* ---------- about / mission log ---------- */
   .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;margin-top:50px;align-items:start}
   .photo-stack{position:relative}
-  .photo-stack .main{width:100%;border-radius:4px;border:1px solid var(--line-dim);display:block;filter:saturate(.9)}
+  .photo-stack .main{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 30%;border-radius:4px;border:1px solid var(--line-dim);display:block;filter:saturate(.9)}
   .photo-stack .da{
     position:absolute;right:-26px;bottom:-40px;width:42%;border-radius:4px;
     border:1px solid var(--line);box-shadow:0 24px 50px rgba(0,0,0,.5);
@@ -237,6 +239,8 @@
   }
   .about-copy p{color:var(--dim);margin-bottom:18px}
   .about-copy p b{color:var(--white);font-weight:600}
+  .about-copy p a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line)}
+  .about-copy p a:hover{color:var(--gold-hi)}
   .pull{
     border-left:2px solid var(--gold);padding:6px 0 6px 22px;margin:30px 0;
     font-size:19px;font-weight:600;color:var(--white);line-height:1.5;
@@ -351,6 +355,9 @@
   }
   footer .id b{display:block;font-size:16px;font-weight:700}
   footer .id span{font-size:13px;color:var(--dim)}
+  .fnav{margin-top:10px;display:flex;gap:18px}
+  .fnav a{color:var(--dim-2);text-decoration:none;font-size:12.5px;font-weight:600;letter-spacing:.05em}
+  .fnav a:hover{color:var(--gold)}
   .soc{display:flex;gap:14px}
   .soc a{
     width:42px;height:42px;border:1px solid var(--line-dim);border-radius:3px;
@@ -423,10 +430,10 @@
   <img class="hero-bg" src="assets/apaches.jpg" alt="">
   <div class="hero-inner">
     <div>
-      <div class="kicker"><span class="dot"></span> Savannah, GA &nbsp;//&nbsp; AI × Defense</div>
+      <div class="kicker"><span class="dot"></span> Savannah → Berkeley, CA · Remote &nbsp;//&nbsp; AI × Defense</div>
       <h1>Apache Pilot.<br>Army Captain.<br><span class="gold">AI Strategy Consultant.</span></h1>
       <p class="tagline">Bridging the gap between what technology promises and what operators actually need.</p>
-      <p class="sub">I bring 10 years of military operational experience to the intersection of AI and defense. I know what it takes for technology to work — not in a lab, but in the field.</p>
+      <p class="sub">I bring 10 years of military operational experience to the intersection of AI and defense. I know what it takes for technology to work: not in a lab, but in the field.</p>
       <div class="cta-row">
         <a class="btn btn-gold" href="https://calendly.com/brianarevalo" target="_blank" rel="noopener">Book a 30‑Minute Intro Call</a>
         <a class="btn btn-ghost" href="#work">View My Work</a>
@@ -449,7 +456,7 @@
     <span>10 Years of Service</span>
     <span>UC Berkeley Haas MBA</span>
     <span>Consortium Fellow</span>
-    <span>Security‑Cleared</span>
+    <span>Security Clearance</span>
   </div>
 </div>
 
@@ -460,25 +467,27 @@
   <p class="lead rv">Credibility is earned in the field and verified in the data.</p>
   <div class="nums">
     <div class="mfd rv"><div class="bar"></div><div class="v"><span data-count="10">0</span> <sup>YRS</sup></div><div class="l">US Army Service</div></div>
+    <div class="mfd rv"><div class="bar"></div><div class="v"><span data-count="500">0</span>+</div><div class="l">Apache Flight Hours</div></div>
     <div class="mfd rv"><div class="bar"></div><div class="v">$<span data-count="1.42" data-dec="2">0</span>B</div><div class="l">Assets Synchronized</div></div>
-    <div class="mfd rv"><div class="bar"></div><div class="v"><span data-count="70">0</span> <sup>KM</sup></div><div class="l">Strike Range Extended</div></div>
+    <div class="mfd rv"><div class="bar"></div><div class="v">D+E</div><div class="l">AH‑64 Models Qualified</div></div>
   </div>
+  <p class="rv" style="margin-top:18px;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--dim-2)">FLIGHT HOURS RECOGNIZED BY THE BOEING COMPANY · CERTIFICATE OF RECOGNITION, DECEMBER 2022</p>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="seclabel rv">02 // Operator Profile</div>
+  <div class="seclabel rv">02 // Career</div>
   <h2 class="rv">The only person in most rooms who has done both.</h2>
   <div class="about-grid">
     <div class="photo-stack rv">
-      <img class="main" src="assets/headshot-2.jpg" alt="Brian Arevalo">
+      <img class="main" src="assets/apaches.jpg" alt="AH-64 Apache helicopters in low-level flight">
       <img class="da" src="assets/da-photo.jpg" alt="Captain Brian Arevalo, US Army">
-      <span class="cap">Then: CPT, AV — Now: AI Strategy</span>
+      <span class="cap">From the cockpit to the strategy table</span>
     </div>
     <div class="about-copy">
-      <p class="rv">Brian Arevalo Ramos is a former Army Captain and <b>AH‑64 Apache helicopter pilot</b> with 10 years of service spanning leadership, mission planning, and operational execution in high‑stakes environments. He now applies that operational discipline to AI and technology strategy, helping defense and aerospace organizations move from concept to capability.</p>
-      <p class="rv">An <b>MBA candidate at UC Berkeley's Haas School of Business</b> and a recipient of the <b>Consortium Fellowship</b> — one of the most selective diversity MBA programs in the country — Brian brings both the credibility of someone who has operated in theater and the analytical rigor of an MBA‑trained strategist.</p>
-      <div class="pull rv">He operated at the intersection of autonomous systems and manned aircraft — exactly where the defense AI industry is converging.</div>
+      <p class="rv">Brian J. Arevalo is a former Army Captain and <b>AH‑64 Apache helicopter pilot</b> with 10 years of service spanning planning, operations, strategy, leadership, and mission execution in high‑stakes environments. He now applies that operational discipline to AI and technology strategy, helping commercial, aerospace, and defense organizations move from concept to capability.</p>
+      <p class="rv">Brian is an <b>MBA candidate at UC Berkeley's Haas School of Business</b>, ranked the <a href="https://newsroom.haas.berkeley.edu/uc-berkeley-haas-climbs-to-no-10-as-the-top-public-business-school-evening-weekend-mba-holds-no-1-spot-in-u-s-news-rankings/" target="_blank" rel="noopener">No. 1 public business school in the country</a> and No. 3 among U.S. programs in the <a href="https://newsroom.haas.berkeley.edu/berkeley-haas-reaches-historic-high-in-financial-times-ranking/" target="_blank" rel="noopener">2026 Financial Times Global MBA ranking</a>, its highest placement ever. A recipient of the <b>Consortium Fellowship</b>, one of the most selective diversity MBA programs in the country, he brings both the credibility of someone who has operated in high‑pressure environments and the analytical rigor of an MBA‑trained strategist.</p>
+      <div class="pull rv">He operates at the intersection of autonomous systems and manned aircraft, exactly where the defense AI industry is converging.</div>
       <div class="mlog rv">
         <h3>Mission Log</h3>
         <div class="wp"><span class="yr">2026 →</span><span class="nd"></span><span class="tx"><b>MBA Candidate — UC Berkeley Haas</b><span>Consortium Fellow · Strategy, Operations, Organizational Transformation</span></span></div>
@@ -486,7 +495,7 @@
         <div class="wp"><span class="yr">2023–25</span><span class="nd"></span><span class="tx"><b>Brigade Asst. Operations Officer — Fort Novosel</b><span>Directed operations for 1,200 students across 13 aviation courses</span></span></div>
         <div class="wp"><span class="yr">2022–23</span><span class="nd"></span><span class="tx"><b>Intelligence Officer — 3‑17 Air Cavalry</b><span>Led 5 analysts supporting a 700‑member aviation squadron</span></span></div>
         <div class="wp"><span class="yr">2020–22</span><span class="nd"></span><span class="tx"><b>Squadron Plans &amp; Operations — Hunter AAF</b><span>Synchronized $1.42B in assets across 24 Apaches and 18 UAVs</span></span></div>
-        <div class="wp"><span class="yr">2016–20</span><span class="nd"></span><span class="tx"><b>Platoon Leader — Camp Humphreys, South Korea</b><span>Attack reconnaissance operations, 600‑soldier battalion</span></span></div>
+        <div class="wp"><span class="yr">2016–20</span><span class="nd"></span><span class="tx"><b>Platoon Leader — Camp Humphreys, South Korea</b><span>Attack and reconnaissance operations, 600‑soldier battalion</span></span></div>
       </div>
     </div>
   </div>
@@ -496,6 +505,7 @@
 <section id="services">
   <div class="seclabel rv">03 // Capabilities</div>
   <h2 class="rv">Three ways I move you from concept to capability.</h2>
+  <p class="lead rv">Over <a href="https://www.gao.gov/blog/snapshot-government-wide-contracting-fy-2025-interactive-dashboard" target="_blank" rel="noopener">$793 billion in federal contracts</a> was obligated last fiscal year, and total national defense resources exceed <a href="https://www.congress.gov/crs-product/R48891" target="_blank" rel="noopener">$1 trillion</a> this year alone. The organizations that win understand both the technology and the operator.</p>
   <div class="svc-grid">
     <div class="svc rv">
       <span class="idx">CAP‑01</span>
@@ -528,17 +538,6 @@
   </div>
 </section>
 
-<!-- DIVIDER BAND -->
-<div class="band">
-  <img src="assets/apaches.jpg" alt="Two AH-64 Apache helicopters in low-level flight">
-  <div class="ov">
-    <div>
-      <blockquote class="rv">"The gap between a capability on paper and a capability that works in the field is almost always a <span class="gold">human systems problem</span>, not a technical one."</blockquote>
-      <cite class="rv">Brian Arevalo — From the field, not the lab</cite>
-    </div>
-  </div>
-</div>
-
 <!-- WORK -->
 <section id="work">
   <div class="seclabel rv">04 // Work &amp; Projects</div>
@@ -548,10 +547,10 @@
     <div class="wk rv">
       <div class="top">
         <svg class="glyph" width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.59.23 2.76.12 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
-        <span class="st">LIVE</span>
+        <span class="st">IN PROGRESS</span>
       </div>
       <h3>GitHub</h3>
-      <p>Browse my repositories — tools, experiments, and applied AI work.</p>
+      <p>Tools, experiments, and applied AI work. Repositories are being organized for release.</p>
       <a href="https://github.com/AltitudeAIbuilds" target="_blank" rel="noopener">View on GitHub →</a>
     </div>
     <div class="wk rv">
@@ -577,21 +576,21 @@
 <!-- PERSPECTIVES -->
 <section id="perspectives">
   <div class="seclabel rv">05 // Perspectives</div>
-  <h2 class="rv">Writing from the operator's seat.</h2>
-  <p class="lead rv">On AI, defense technology, autonomous systems, and what it takes to bridge the gap between capability and operational reality.</p>
+  <h2 class="rv">Thoughts and articles.</h2>
+  <p class="lead rv">Blog articles, perspectives on the future, and other inspirations.</p>
   <div class="blog-grid">
     <article class="feat rv">
       <div class="im"><img src="assets/blog-1.jpg" alt="Article cover"></div>
       <div class="bd">
-        <div class="mt">Featured · Defense AI</div>
+        <div class="mt">Featured Essay</div>
         <h3>Why the DoD's AI Adoption Problem Is a Trust Problem, Not a Technology Problem</h3>
         <p>The Pentagon has spent billions on AI programs in the last decade. A disproportionate number have failed — not because the technology did not work in the lab, but because the people who were supposed to use it did not trust it.</p>
-        <span class="mt" style="margin-bottom:0;opacity:.8">In Draft &middot; Publishing Soon</span>
+        <span class="mt" style="margin-bottom:0;opacity:.8">To Be Published</span>
       </div>
     </article>
     <div class="side-posts">
-      <div class="sp rv"><span class="mt">In Draft</span><h4>What Apache crews taught me about human‑machine teaming</h4></div>
-      <div class="sp rv"><span class="mt">In Draft</span><h4>The acquisition language barrier: why good tech loses good contracts</h4></div>
+      <div class="sp rv"><span class="mt">To Be Published</span><h4>What Apache crews taught me about human‑machine teaming</h4></div>
+      <div class="sp rv"><span class="mt">To Be Published</span><h4>The acquisition language barrier: why good tech loses good contracts</h4></div>
     </div>
   </div>
 </section>
@@ -600,7 +599,6 @@
 <section id="contact" class="contact">
   <div class="seclabel rv" style="justify-content:center">06 // Establish Contact</div>
   <h2 class="rv">Let's Talk.</h2>
-  <p class="lead rv">If you are working on a challenge at the intersection of defense, aerospace, and AI — I would like to hear about it.</p>
   <p class="note rv">Free 30‑minute introductory call for qualified engagements. No pitch. Just a direct conversation about your situation and whether I can help.</p>
   <div class="cta-row rv">
     <a class="btn btn-gold" href="https://calendly.com/brianarevalo" target="_blank" rel="noopener">Schedule a Call</a>
@@ -612,7 +610,7 @@
 <div class="status">
   <div class="wrap">
     <span>SYS: <b>ONLINE</b></span>
-    <span>LOC: SAVANNAH, GA · 32.08°N 81.09°W</span>
+    <span>LOC: BERKELEY, CA · 37.87°N 122.27°W</span>
     <span>TIME: <b id="clock">--:--</b> EST</span>
     <span>ARÉVALO STRATEGIES</span>
   </div>
@@ -622,8 +620,11 @@
 <footer>
   <div class="wrap">
     <div class="id">
-      <b>Brian Arevalo Ramos</b>
-      <span>AI Strategy Consultant · Savannah, GA</span>
+      <b><a href="#top" style="color:inherit;text-decoration:none">Brian Arevalo Ramos</a></b>
+      <span>AI Strategy Consultant · Savannah, GA → Berkeley, CA · Remote</span>
+      <nav class="fnav">
+        <a href="#about">About</a><a href="#services">Services</a><a href="#work">Work</a><a href="#perspectives">Perspectives</a><a href="#contact">Contact</a>
+      </nav>
     </div>
     <div class="soc">
       <a href="https://www.linkedin.com/in/brianjarevalo/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
