@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brian Arevalo | AI Strategy Consultant — Apache Pilot, Army Captain, Berkeley Haas MBA</title>
+<meta name="description" content="Former AH-64 Apache pilot and Army Captain turned AI strategy consultant. Bridging the gap between what technology promises and what operators actually need.">
+<link rel="canonical" href="https://arevalostrategies.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Brian Arevalo | AI Strategy Consultant">
+<meta property="og:description" content="Apache pilot. Army Captain. AI strategy consultant. Bridging the gap between what technology promises and what operators actually need.">
+<meta property="og:url" content="https://arevalostrategies.com/">
+<meta property="og:image" content="https://arevalostrategies.com/assets/apaches.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='9'%20fill='%230a1628'/%3E%3Ccircle%20cx='32'%20cy='32'%20r='23'%20fill='none'%20stroke='%23c9a84c'%20stroke-width='2.5'/%3E%3Ctext%20x='32'%20y='39.5'%20font-family='monospace'%20font-weight='bold'%20font-size='19'%20fill='%23c9a84c'%20text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Brian J. Ar\u00e9valo Ramos","alternateName":"Brian Arevalo","jobTitle":"AI Strategy Consultant","url":"https://arevalostrategies.com","address":{"@type":"PostalAddress","addressLocality":"Savannah","addressRegion":"GA","addressCountry":"US"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"UC Berkeley Haas School of Business"},{"@type":"CollegeOrUniversity","name":"Inter-American University of Puerto Rico"}],"knowsAbout":["AI Strategy","Defense Technology","Autonomous Systems","UAV Integration","DoD Procurement"],"sameAs":["https://www.linkedin.com/in/brianjarevalo/"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a1628;
+    --navy-2:#0d1d33;
+    --panel:#0f2040;
+    --panel-2:#122548;
+    --line:rgba(201,168,76,.28);
+    --line-dim:rgba(147,160,181,.14);
+    --gold:#c9a84c;
+    --gold-hi:#ecd28a;
+    --white:#f4f6fa;
+    --dim:#93a0b5;
+    --dim-2:#5d6b82;
+    --mono:'JetBrains Mono',monospace;
+    --sans:'Sora',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--navy);
+    color:var(--white);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--gold);color:var(--navy)}
+
+  /* ---------- faint engineering grid over whole page ---------- */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      linear-gradient(rgba(201,168,76,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(201,168,76,.035) 1px,transparent 1px);
+    background-size:72px 72px;
+  }
+
+  /* ---------- heading tape (compass ruler) ---------- */
+  .tape{
+    position:relative;height:34px;border-bottom:1px solid var(--line);
+    overflow:hidden;background:var(--navy-2);z-index:5;
+  }
+  .tape .ticks{
+    position:absolute;inset:0;width:200%;
+    background-image:repeating-linear-gradient(90deg,
+      var(--gold) 0 1px,transparent 1px 24px),
+      repeating-linear-gradient(90deg,
+      rgba(201,168,76,.45) 0 1px,transparent 1px 6px);
+    background-size:240px 14px,240px 7px;
+    background-position:0 bottom,0 bottom;
+    background-repeat:repeat-x;
+    animation:tapepan 60s linear infinite;
+    opacity:.55;
+  }
+  @keyframes tapepan{from{transform:translateX(0)}to{transform:translateX(-240px)}}
+  .tape .lbls{
+    position:absolute;inset:0;display:flex;justify-content:space-between;
+    padding:4px 24px 0;font-family:var(--mono);font-size:10px;letter-spacing:.25em;
+    color:var(--gold);opacity:.8;
+  }
+  .tape .center-mark{
+    position:absolute;left:50%;top:0;width:0;height:0;transform:translateX(-50%);
+    border-left:6px solid transparent;border-right:6px solid transparent;
+    border-top:8px solid var(--gold);
+  }
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 48px;
+    background:rgba(10,22,40,.82);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line-dim);
+  }
+  .logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--white)}
+  .logo .roundel{
+    width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;
+    display:grid;place-items:center;position:relative;flex:none;
+  }
+  .logo .roundel::before{content:"";position:absolute;inset:6px;border:1px solid rgba(201,168,76,.4);border-radius:50%}
+  .logo .roundel span{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--gold);letter-spacing:.05em}
+  .logo .nm{font-weight:700;font-size:17px;letter-spacing:.02em}
+  .logo .nm small{display:block;font-family:var(--mono);font-weight:400;font-size:9px;color:var(--gold);letter-spacing:.3em;text-transform:uppercase}
+  .navlinks{display:flex;gap:34px;align-items:center}
+  .navlinks a{color:var(--dim);text-decoration:none;font-size:13.5px;font-weight:600;letter-spacing:.06em;transition:color .2s}
+  .navlinks a:hover{color:var(--gold)}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--sans);font-weight:700;font-size:14px;letter-spacing:.04em;
+    padding:13px 26px;border-radius:3px;text-decoration:none;cursor:pointer;
+    transition:all .22s ease;border:1px solid var(--gold);
+  }
+  .btn-gold{background:var(--gold);color:var(--navy)}
+  .btn-gold:hover{background:var(--gold-hi);box-shadow:0 0 32px rgba(201,168,76,.35)}
+  .btn-ghost{background:transparent;color:var(--gold)}
+  .btn-ghost:hover{background:rgba(201,168,76,.1)}
+  .btn-sm{padding:10px 20px;font-size:13px}
+
+  /* ---------- shared section scaffolding ---------- */
+  section{position:relative;z-index:1;padding:110px 48px;max-width:1280px;margin:0 auto}
+  .seclabel{
+    display:flex;align-items:center;gap:16px;margin-bottom:18px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;
+  }
+  .seclabel::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+  h2{font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.01em;line-height:1.15;margin-bottom:14px}
+  .lead{color:var(--dim);max-width:640px;font-size:17px}
+
+  /* reveal on scroll */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .rv.in{opacity:1;transform:none}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;max-width:none;margin:0;padding:0;
+    border-bottom:1px solid var(--line-dim);overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;top:0;right:0;height:100%;width:58%;
+    object-fit:cover;object-position:center 30%;
+    opacity:.22;filter:saturate(.55) contrast(1.05);
+    -webkit-mask-image:linear-gradient(to left,rgba(0,0,0,.95),transparent);
+            mask-image:linear-gradient(to left,rgba(0,0,0,.95),transparent);
+  }
+  .hero-inner{
+    position:relative;max-width:1280px;margin:0 auto;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;
+    padding:96px 48px 110px;
+  }
+  .kicker{
+    font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:var(--gold);
+    text-transform:uppercase;margin-bottom:26px;display:flex;align-items:center;gap:12px;
+  }
+  .kicker .dot{width:7px;height:7px;background:var(--gold);border-radius:50%;animation:blink 2.4s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+  h1{
+    font-size:clamp(40px,5.6vw,72px);font-weight:800;line-height:1.06;letter-spacing:-.02em;
+    margin-bottom:26px;
+  }
+  h1 .gold{color:var(--gold)}
+  .tagline{font-size:clamp(18px,2vw,22px);color:var(--white);font-weight:600;margin-bottom:18px;max-width:560px}
+  .sub{color:var(--dim);max-width:540px;margin-bottom:40px}
+  .cta-row{display:flex;gap:18px;flex-wrap:wrap}
+
+  /* portrait in reticle frame */
+  .pfrm{position:relative;justify-self:center;width:min(380px,86%)}
+  .pfrm img{width:100%;display:block;border-radius:4px;filter:saturate(.92);border:1px solid var(--line-dim)}
+  .pfrm::before,.pfrm::after,
+  .pfrm .ck::before,.pfrm .ck::after{
+    content:"";position:absolute;width:34px;height:34px;border:2px solid var(--gold);
+  }
+  .pfrm::before{top:-10px;left:-10px;border-right:none;border-bottom:none}
+  .pfrm::after{top:-10px;right:-10px;border-left:none;border-bottom:none}
+  .pfrm .ck::before{bottom:-10px;left:-10px;border-right:none;border-top:none}
+  .pfrm .ck::after{bottom:-10px;right:-10px;border-left:none;border-top:none}
+  .pfrm .tag{
+    position:absolute;left:0;bottom:-14px;transform:translateY(100%);
+    font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--dim);
+  }
+  .pfrm .tag b{color:var(--gold);font-weight:500}
+  .radar{
+    position:absolute;z-index:-1;width:560px;height:560px;border-radius:50%;
+    top:50%;left:50%;transform:translate(-50%,-50%);
+    border:1px solid rgba(201,168,76,.15);
+  }
+  .radar::before{content:"";position:absolute;inset:90px;border:1px solid rgba(201,168,76,.12);border-radius:50%}
+  .radar::after{
+    content:"";position:absolute;inset:0;border-radius:50%;
+    background:conic-gradient(from 0deg,rgba(201,168,76,.20),transparent 18%);
+    animation:sweep 7s linear infinite;
+  }
+  @keyframes sweep{to{transform:rotate(360deg)}}
+
+  /* ---------- credential bar ---------- */
+  .credbar{
+    border-top:1px solid var(--line-dim);border-bottom:1px solid var(--line-dim);
+    background:var(--navy-2);position:relative;z-index:2;
+  }
+  .credbar .wrap{
+    max-width:1280px;margin:0 auto;padding:16px 48px;
+    display:flex;flex-wrap:wrap;gap:10px 0;align-items:center;justify-content:space-between;
+  }
+  .credbar span{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);
+    display:flex;align-items:center;gap:18px;
+  }
+  .credbar span + span::before{content:"✦";color:var(--gold);font-size:9px;margin-right:18px}
+
+  /* ---------- numbers / MFD readouts ---------- */
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+  .mfd{
+    position:relative;background:var(--panel);border:1px solid var(--line-dim);
+    padding:34px 28px 28px;border-radius:4px;overflow:hidden;
+  }
+  .mfd::before,.mfd::after{content:"";position:absolute;width:16px;height:16px;border:1.5px solid var(--gold)}
+  .mfd::before{top:8px;left:8px;border-right:none;border-bottom:none}
+  .mfd::after{bottom:8px;right:8px;border-left:none;border-top:none}
+  .mfd .v{
+    font-family:var(--mono);font-weight:700;font-size:clamp(30px,3vw,42px);color:var(--gold);
+    letter-spacing:-.01em;line-height:1;margin-bottom:12px;
+  }
+  .mfd .v sup{font-size:.5em;letter-spacing:0}
+  .mfd .l{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+  .mfd .bar{position:absolute;top:0;left:0;height:2px;width:100%;background:linear-gradient(90deg,var(--gold),transparent)}
+
+  /* ---------- about / mission log ---------- */
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;margin-top:50px;align-items:start}
+  .photo-stack{position:relative}
+  .photo-stack .main{width:100%;border-radius:4px;border:1px solid var(--line-dim);display:block;filter:saturate(.9)}
+  .photo-stack .da{
+    position:absolute;right:-26px;bottom:-40px;width:42%;border-radius:4px;
+    border:1px solid var(--line);box-shadow:0 24px 50px rgba(0,0,0,.5);
+    object-fit:cover;aspect-ratio:3.4/4;object-position:50% 18%;
+  }
+  .photo-stack .cap{
+    position:absolute;left:0;bottom:-40px;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.2em;color:var(--dim-2);text-transform:uppercase;
+  }
+  .about-copy p{color:var(--dim);margin-bottom:18px}
+  .about-copy p b{color:var(--white);font-weight:600}
+  .pull{
+    border-left:2px solid var(--gold);padding:6px 0 6px 22px;margin:30px 0;
+    font-size:19px;font-weight:600;color:var(--white);line-height:1.5;
+  }
+  .mlog{margin-top:46px;border-top:1px dashed var(--line-dim);padding-top:36px}
+  .mlog h3{font-family:var(--mono);font-size:12px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:28px}
+  .wp{display:grid;grid-template-columns:120px 18px 1fr;gap:0 18px;position:relative;padding-bottom:30px}
+  .wp:last-child{padding-bottom:0}
+  .wp .yr{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em;padding-top:2px;text-align:right}
+  .wp .nd{position:relative;display:flex;justify-content:center}
+  .wp .nd::before{content:"";width:9px;height:9px;background:var(--navy);border:2px solid var(--gold);transform:rotate(45deg);margin-top:5px;z-index:1}
+  .wp:not(:last-child) .nd::after{content:"";position:absolute;top:18px;bottom:-6px;width:1px;background:var(--line-dim)}
+  .wp .tx b{display:block;font-size:15.5px;font-weight:700;color:var(--white);margin-bottom:3px}
+  .wp .tx span{font-size:14px;color:var(--dim)}
+
+  /* ---------- services ---------- */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+  .svc{
+    background:var(--panel);border:1px solid var(--line-dim);border-radius:4px;
+    padding:40px 32px;position:relative;transition:transform .25s ease,border-color .25s ease;
+    display:flex;flex-direction:column;
+  }
+  .svc:hover{transform:translateY(-6px);border-color:var(--line)}
+  .svc .idx{font-family:var(--mono);font-size:11px;color:var(--dim-2);letter-spacing:.25em;margin-bottom:24px}
+  .svc .icn{width:46px;height:46px;margin-bottom:26px;color:var(--gold)}
+  .svc h3{font-size:20px;font-weight:700;margin-bottom:14px;line-height:1.3}
+  .svc p{font-size:15px;color:var(--dim);margin-bottom:14px}
+  .svc .for{
+    margin-top:auto;padding-top:18px;border-top:1px dashed var(--line-dim);
+    font-family:var(--mono);font-size:11.5px;color:var(--dim-2);letter-spacing:.04em;line-height:1.7;
+  }
+  .svc .for b{color:var(--gold);font-weight:500;letter-spacing:.2em}
+  .svc-cta{margin-top:44px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+  .svc-cta p{color:var(--dim);font-size:16px}
+
+  /* ---------- divider band ---------- */
+  .band{
+    position:relative;max-width:none;padding:0;margin:0;height:380px;overflow:hidden;
+    border-top:1px solid var(--line-dim);border-bottom:1px solid var(--line-dim);
+  }
+  .band img{width:100%;height:100%;object-fit:cover;object-position:center 38%;filter:saturate(.6) brightness(.5)}
+  .band .ov{
+    position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 24px;
+    background:linear-gradient(180deg,rgba(10,22,40,.55),rgba(10,22,40,.78));
+  }
+  .band .ov blockquote{font-size:clamp(20px,2.6vw,30px);font-weight:700;max-width:880px;line-height:1.4}
+  .band .ov blockquote .gold{color:var(--gold)}
+  .band .ov cite{display:block;margin-top:18px;font-family:var(--mono);font-style:normal;font-size:11.5px;letter-spacing:.3em;color:var(--dim);text-transform:uppercase}
+
+  /* ---------- work ---------- */
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+  .wk{
+    border:1px solid var(--line-dim);border-radius:4px;padding:38px 32px;background:var(--navy-2);
+    display:flex;flex-direction:column;gap:14px;transition:border-color .25s,transform .25s;
+  }
+  .wk:hover{border-color:var(--line);transform:translateY(-6px)}
+  .wk .top{display:flex;justify-content:space-between;align-items:center}
+  .wk .top .glyph{color:var(--gold)}
+  .wk .top .st{font-family:var(--mono);font-size:10px;letter-spacing:.25em;color:var(--gold);border:1px solid var(--line);padding:5px 10px;border-radius:2px}
+  .wk h3{font-size:19px;font-weight:700}
+  .wk p{font-size:14.5px;color:var(--dim);flex:1}
+  .wk a{color:var(--gold);text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.04em}
+  .wk a:hover{text-decoration:underline}
+  .wk.soon{border-style:dashed;opacity:.65}
+  .wk.soon .st{color:var(--dim);border-color:var(--line-dim)}
+
+  /* ---------- perspectives ---------- */
+  .blog-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;margin-top:54px}
+  .feat{
+    border:1px solid var(--line-dim);border-radius:4px;overflow:hidden;background:var(--navy-2);
+    display:flex;flex-direction:column;transition:border-color .25s;
+  }
+  .feat:hover{border-color:var(--line)}
+  .feat .im{height:260px;overflow:hidden;position:relative}
+  .feat .im img{width:100%;height:100%;object-fit:cover;filter:saturate(.8)}
+  .feat .im::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,29,51,.9))}
+  .feat .bd{padding:30px 32px 34px}
+  .feat .mt{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+  .feat h3{font-size:22px;font-weight:700;line-height:1.35;margin-bottom:12px}
+  .feat p{font-size:15px;color:var(--dim);margin-bottom:18px}
+  .side-posts{display:flex;flex-direction:column;gap:22px}
+  .sp{
+    border:1px dashed var(--line-dim);border-radius:4px;padding:28px 30px;flex:1;
+    display:flex;flex-direction:column;justify-content:center;gap:8px;opacity:.65;
+  }
+  .sp .mt{font-family:var(--mono);font-size:10.5px;letter-spacing:.25em;color:var(--dim);text-transform:uppercase}
+  .sp h4{font-size:16.5px;font-weight:600;color:var(--dim)}
+
+  /* ---------- contact ---------- */
+  .contact{
+    text-align:center;max-width:760px;
+  }
+  .contact h2{font-size:clamp(36px,4.6vw,56px)}
+  .contact .lead{margin:0 auto 14px}
+  .contact .note{font-family:var(--mono);font-size:12.5px;color:var(--dim-2);letter-spacing:.06em;margin-bottom:44px}
+  .contact .cta-row{justify-content:center;margin-bottom:34px}
+  .alt{font-family:var(--mono);font-size:13px;color:var(--dim)}
+  .alt a{color:var(--gold);text-decoration:none}
+  .alt a:hover{text-decoration:underline}
+
+  /* ---------- status + footer ---------- */
+  .status{
+    border-top:1px solid var(--line-dim);background:var(--navy-2);
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--dim-2);text-transform:uppercase;
+  }
+  .status .wrap{max-width:1280px;margin:0 auto;padding:12px 48px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .status b{color:var(--gold);font-weight:500}
+  footer{border-top:1px solid var(--line-dim)}
+  footer .wrap{
+    max-width:1280px;margin:0 auto;padding:44px 48px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:22px;
+  }
+  footer .id b{display:block;font-size:16px;font-weight:700}
+  footer .id span{font-size:13px;color:var(--dim)}
+  .soc{display:flex;gap:14px}
+  .soc a{
+    width:42px;height:42px;border:1px solid var(--line-dim);border-radius:3px;
+    display:grid;place-items:center;color:var(--dim);transition:all .2s;
+  }
+  .soc a:hover{color:var(--gold);border-color:var(--gold)}
+  footer .cp{font-family:var(--mono);font-size:11px;color:var(--dim-2);letter-spacing:.08em}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:1020px){
+    .hero-inner{grid-template-columns:1fr;padding:70px 28px 90px}
+    .hero-bg{width:100%;opacity:.12}
+    .pfrm{display:none}
+    section{padding:84px 28px}
+    .nums{grid-template-columns:repeat(2,1fr)}
+    .svc-grid,.work-grid{grid-template-columns:1fr}
+    .about-grid{grid-template-columns:1fr;gap:80px}
+    .blog-grid{grid-template-columns:1fr}
+    .navlinks a:not(.btn){display:none}
+    nav{padding:16px 24px}
+    .credbar .wrap,.status .wrap,footer .wrap{padding-left:28px;padding-right:28px}
+  }
+
+  /* ---------- mobile menu ---------- */
+  .burger{display:none;background:none;border:1px solid var(--line);border-radius:3px;width:44px;height:40px;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:0}
+  .burger span{display:block;width:18px;height:2px;background:var(--gold);transition:all .2s}
+  .burger.x span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.x span:nth-child(2){opacity:0}
+  .burger.x span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mmenu{display:none;position:fixed;inset:0;z-index:49;background:rgba(10,22,40,.98);padding:130px 40px 40px;flex-direction:column;gap:26px}
+  .mmenu.open{display:flex}
+  .mmenu a{color:var(--white);text-decoration:none;font-size:24px;font-weight:700;border-bottom:1px solid var(--line-dim);padding-bottom:18px;font-family:var(--sans)}
+  @media(max-width:1020px){.burger{display:flex}}
+</style>
+</head>
+<body>
+
+<!-- HEADING TAPE -->
+<div class="tape" aria-hidden="true">
+  <div class="ticks"></div>
+  <div class="lbls"><span>270</span><span>300</span><span>330</span><span>N</span><span>030</span><span>060</span><span>090</span></div>
+  <div class="center-mark"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#top">
+    <span class="roundel"><span>BA</span></span>
+    <span class="nm">Brian Arevalo<small>AI Strategy</small></span>
+  </a>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#perspectives">Perspectives</a>
+    <a class="btn btn-gold btn-sm" href="https://calendly.com/brianarevalo" target="_blank" rel="noopener">Book a Call</a>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mmenu" id="mmenu">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#work">Work</a>
+  <a href="#perspectives">Perspectives</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <img class="hero-bg" src="assets/apaches.jpg" alt="">
+  <div class="hero-inner">
+    <div>
+      <div class="kicker"><span class="dot"></span> Savannah, GA &nbsp;//&nbsp; AI × Defense</div>
+      <h1>Apache Pilot.<br>Army Captain.<br><span class="gold">AI Strategy Consultant.</span></h1>
+      <p class="tagline">Bridging the gap between what technology promises and what operators actually need.</p>
+      <p class="sub">I bring 10 years of military operational experience to the intersection of AI and defense. I know what it takes for technology to work — not in a lab, but in the field.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="https://calendly.com/brianarevalo" target="_blank" rel="noopener">Book a 30‑Minute Intro Call</a>
+        <a class="btn btn-ghost" href="#work">View My Work</a>
+      </div>
+    </div>
+    <div class="pfrm rv">
+      <div class="radar" aria-hidden="true"></div>
+      <span class="ck"></span>
+      <img src="assets/headshot.jpg" alt="Brian Arevalo, AI Strategy Consultant">
+      <span class="tag"><b>ID:</b> AREVALO, B.J. &nbsp;·&nbsp; CPT, AV &nbsp;·&nbsp; 10 YRS</span>
+    </div>
+  </div>
+</header>
+
+<!-- CREDENTIAL BAR -->
+<div class="credbar">
+  <div class="wrap">
+    <span>AH‑64 Apache Pilot</span>
+    <span>Army Captain</span>
+    <span>10 Years of Service</span>
+    <span>UC Berkeley Haas MBA</span>
+    <span>Consortium Fellow</span>
+    <span>Security‑Cleared</span>
+  </div>
+</div>
+
+<!-- BY THE NUMBERS -->
+<section id="numbers">
+  <div class="seclabel rv">01 // By the Numbers</div>
+  <h2 class="rv">Operational record, quantified.</h2>
+  <p class="lead rv">Credibility is earned in the field and verified in the data.</p>
+  <div class="nums">
+    <div class="mfd rv"><div class="bar"></div><div class="v"><span data-count="10">0</span> <sup>YRS</sup></div><div class="l">US Army Service</div></div>
+    <div class="mfd rv"><div class="bar"></div><div class="v">$<span data-count="1.42" data-dec="2">0</span>B</div><div class="l">Assets Synchronized</div></div>
+    <div class="mfd rv"><div class="bar"></div><div class="v"><span data-count="70">0</span> <sup>KM</sup></div><div class="l">Strike Range Extended</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="seclabel rv">02 // Operator Profile</div>
+  <h2 class="rv">The only person in most rooms who has done both.</h2>
+  <div class="about-grid">
+    <div class="photo-stack rv">
+      <img class="main" src="assets/headshot-2.jpg" alt="Brian Arevalo">
+      <img class="da" src="assets/da-photo.jpg" alt="Captain Brian Arevalo, US Army">
+      <span class="cap">Then: CPT, AV — Now: AI Strategy</span>
+    </div>
+    <div class="about-copy">
+      <p class="rv">Brian Arevalo Ramos is a former Army Captain and <b>AH‑64 Apache helicopter pilot</b> with 10 years of service spanning leadership, mission planning, and operational execution in high‑stakes environments. He now applies that operational discipline to AI and technology strategy, helping defense and aerospace organizations move from concept to capability.</p>
+      <p class="rv">An <b>MBA candidate at UC Berkeley's Haas School of Business</b> and a recipient of the <b>Consortium Fellowship</b> — one of the most selective diversity MBA programs in the country — Brian brings both the credibility of someone who has operated in theater and the analytical rigor of an MBA‑trained strategist.</p>
+      <div class="pull rv">He operated at the intersection of autonomous systems and manned aircraft — exactly where the defense AI industry is converging.</div>
+      <div class="mlog rv">
+        <h3>Mission Log</h3>
+        <div class="wp"><span class="yr">2026 →</span><span class="nd"></span><span class="tx"><b>MBA Candidate — UC Berkeley Haas</b><span>Consortium Fellow · Strategy, Operations, Organizational Transformation</span></span></div>
+        <div class="wp"><span class="yr">2025</span><span class="nd"></span><span class="tx"><b>ServiceNow Skillbridge</b><span>Enterprise software, workflow automation, AI integration</span></span></div>
+        <div class="wp"><span class="yr">2023–25</span><span class="nd"></span><span class="tx"><b>Brigade Asst. Operations Officer — Fort Novosel</b><span>Directed operations for 1,200 students across 13 aviation courses</span></span></div>
+        <div class="wp"><span class="yr">2022–23</span><span class="nd"></span><span class="tx"><b>Intelligence Officer — 3‑17 Air Cavalry</b><span>Led 5 analysts supporting a 700‑member aviation squadron</span></span></div>
+        <div class="wp"><span class="yr">2020–22</span><span class="nd"></span><span class="tx"><b>Squadron Plans &amp; Operations — Hunter AAF</b><span>Synchronized $1.42B in assets across 24 Apaches and 18 UAVs</span></span></div>
+        <div class="wp"><span class="yr">2016–20</span><span class="nd"></span><span class="tx"><b>Platoon Leader — Camp Humphreys, South Korea</b><span>Attack reconnaissance operations, 600‑soldier battalion</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="seclabel rv">03 // Capabilities</div>
+  <h2 class="rv">Three ways I move you from concept to capability.</h2>
+  <div class="svc-grid">
+    <div class="svc rv">
+      <span class="idx">CAP‑01</span>
+      <svg class="icn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="8" y="8" width="32" height="32" rx="2"/><path d="M8 20h32M20 8v32"/><circle cx="30" cy="30" r="5"/></svg>
+      <h3>AI Readiness &amp; Strategy</h3>
+      <p>I assess where your organization stands on AI adoption, identify the highest‑value deployment opportunities, and build a phased roadmap that accounts for your operational environment, regulatory constraints, and workforce reality.</p>
+      <p>The deliverable is not a deck. It is a plan your team can actually execute.</p>
+      <div class="for"><b>FOR</b><br>Defense primes, aerospace firms, and DoD program offices evaluating AI adoption.</div>
+    </div>
+    <div class="svc rv">
+      <span class="idx">CAP‑02</span>
+      <svg class="icn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="1.5" fill="currentColor"/><path d="M24 2v8M24 38v8M2 24h8M38 24h8"/></svg>
+      <h3>Defense Market Entry &amp; Positioning</h3>
+      <p>For technology companies entering the defense sector, I provide the operational context and buyer‑side perspective that accelerates credibility and shortens the acquisition cycle.</p>
+      <p>How DoD procurement actually works, what program offices actually need, and how to position your capability in language that resonates.</p>
+      <div class="for"><b>FOR</b><br>Commercial AI and tech companies seeking defense contracts or partnerships.</div>
+    </div>
+    <div class="svc rv">
+      <span class="idx">CAP‑03</span>
+      <svg class="icn" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 6h20l8 8v28H10z"/><path d="M30 6v8h8"/><path d="M16 22h16M16 28h16M16 34h10"/></svg>
+      <h3>Operational Requirements Translation</h3>
+      <p>I work directly with engineering and product teams to translate operational requirements into system specifications — getting the user's actual needs into the design process before the product is built, not after.</p>
+      <p>This is the work that prevents expensive rebuilds.</p>
+      <div class="for"><b>FOR</b><br>Product and engineering teams building for defense, autonomous systems, or high‑reliability environments.</div>
+    </div>
+  </div>
+  <div class="svc-cta rv">
+    <p>Not sure which fits your situation?</p>
+    <a class="btn btn-ghost btn-sm" href="https://calendly.com/brianarevalo" target="_blank" rel="noopener">Book a free 30‑minute call →</a>
+  </div>
+</section>
+
+<!-- DIVIDER BAND -->
+<div class="band">
+  <img src="assets/apaches.jpg" alt="Two AH-64 Apache helicopters in low-level flight">
+  <div class="ov">
+    <div>
+      <blockquote class="rv">"The gap between a capability on paper and a capability that works in the field is almost always a <span class="gold">human systems problem</span>, not a technical one."</blockquote>
+      <cite class="rv">Brian Arevalo — From the field, not the lab</cite>
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="seclabel rv">04 // Work &amp; Projects</div>
+  <h2 class="rv">A working portfolio, updated regularly.</h2>
+  <p class="lead rv">Projects, writing, and open‑source work at the intersection of AI and defense.</p>
+  <div class="work-grid">
+    <div class="wk rv">
+      <div class="top">
+        <svg class="glyph" width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.59.23 2.76.12 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        <span class="st">LIVE</span>
+      </div>
+      <h3>GitHub</h3>
+      <p>Browse my repositories — tools, experiments, and applied AI work.</p>
+      <a href="https://github.com/AltitudeAIbuilds" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+    <div class="wk rv">
+      <div class="top">
+        <svg class="glyph" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
+        <span class="st">LIVE</span>
+      </div>
+      <h3>Perspectives Blog</h3>
+      <p>Writing on AI, defense technology, and autonomous systems.</p>
+      <a href="#perspectives">Read the Blog →</a>
+    </div>
+    <div class="wk soon rv">
+      <div class="top">
+        <svg class="glyph" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>
+        <span class="st">COMING SOON</span>
+      </div>
+      <h3>Case Studies</h3>
+      <p>Results from client engagements will appear here as the practice grows.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PERSPECTIVES -->
+<section id="perspectives">
+  <div class="seclabel rv">05 // Perspectives</div>
+  <h2 class="rv">Writing from the operator's seat.</h2>
+  <p class="lead rv">On AI, defense technology, autonomous systems, and what it takes to bridge the gap between capability and operational reality.</p>
+  <div class="blog-grid">
+    <article class="feat rv">
+      <div class="im"><img src="assets/blog-1.jpg" alt="Article cover"></div>
+      <div class="bd">
+        <div class="mt">Featured · Defense AI</div>
+        <h3>Why the DoD's AI Adoption Problem Is a Trust Problem, Not a Technology Problem</h3>
+        <p>The Pentagon has spent billions on AI programs in the last decade. A disproportionate number have failed — not because the technology did not work in the lab, but because the people who were supposed to use it did not trust it.</p>
+        <span class="mt" style="margin-bottom:0;opacity:.8">In Draft &middot; Publishing Soon</span>
+      </div>
+    </article>
+    <div class="side-posts">
+      <div class="sp rv"><span class="mt">In Draft</span><h4>What Apache crews taught me about human‑machine teaming</h4></div>
+      <div class="sp rv"><span class="mt">In Draft</span><h4>The acquisition language barrier: why good tech loses good contracts</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="seclabel rv" style="justify-content:center">06 // Establish Contact</div>
+  <h2 class="rv">Let's Talk.</h2>
+  <p class="lead rv">If you are working on a challenge at the intersection of defense, aerospace, and AI — I would like to hear about it.</p>
+  <p class="note rv">Free 30‑minute introductory call for qualified engagements. No pitch. Just a direct conversation about your situation and whether I can help.</p>
+  <div class="cta-row rv">
+    <a class="btn btn-gold" href="https://calendly.com/brianarevalo" target="_blank" rel="noopener">Schedule a Call</a>
+  </div>
+  <p class="alt rv">Prefer email? <a href="mailto:brian114@live.com">brian114@live.com</a></p>
+</section>
+
+<!-- STATUS BAR -->
+<div class="status">
+  <div class="wrap">
+    <span>SYS: <b>ONLINE</b></span>
+    <span>LOC: SAVANNAH, GA · 32.08°N 81.09°W</span>
+    <span>TIME: <b id="clock">--:--</b> EST</span>
+    <span>ARÉVALO STRATEGIES</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="id">
+      <b>Brian Arevalo Ramos</b>
+      <span>AI Strategy Consultant · Savannah, GA</span>
+    </div>
+    <div class="soc">
+      <a href="https://www.linkedin.com/in/brianjarevalo/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+      <a href="https://github.com/AltitudeAIbuilds" target="_blank" rel="noopener" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.59.23 2.76.12 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a>
+      <a href="mailto:brian114@live.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6L22 7"/></svg></a>
+    </div>
+    <span class="cp">© 2026 BRIAN AREVALO RAMOS · ALL RIGHTS RESERVED</span>
+  </div>
+</footer>
+
+<script>
+  // reveal on scroll
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // count-up stats
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;cio.unobserve(e.target);
+    const el=e.target,end=parseFloat(el.dataset.count),dec=parseInt(el.dataset.dec||0),t0=performance.now(),D=1400;
+    const tick=t=>{const p=Math.min((t-t0)/D,1),v=end*(1-Math.pow(1-p,3));
+      el.textContent=v.toFixed(dec);if(p<1)requestAnimationFrame(tick)};
+    requestAnimationFrame(tick);
+  }),{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+  // live clock (Eastern)
+  const clk=document.getElementById('clock');
+  const setClk=()=>{clk.textContent=new Date().toLocaleTimeString('en-US',{timeZone:'America/New_York',hour12:false,hour:'2-digit',minute:'2-digit'})};
+  setClk();setInterval(setClk,30000);
+
+  // mobile menu
+  const bg=document.getElementById('burger'),mm=document.getElementById('mmenu');
+  bg.addEventListener('click',()=>{mm.classList.toggle('open');bg.classList.toggle('x')});
+  mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');bg.classList.remove('x')}));
+</script>
+</body>
+</html>
