@@ -233,6 +233,7 @@
     border:1px solid var(--line);box-shadow:0 24px 50px rgba(0,0,0,.5);
     object-fit:cover;aspect-ratio:3.4/4;object-position:50% 18%;
   }
+  .photo-stack .pcredit{position:absolute;top:10px;left:10px;background:rgba(10,22,40,.72);backdrop-filter:blur(4px);padding:5px 10px;border-radius:2px;font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--dim);border:1px solid var(--line-dim)}
   .photo-stack .cap{
     position:absolute;left:0;bottom:-40px;font-family:var(--mono);font-size:10.5px;
     letter-spacing:.2em;color:var(--dim-2);text-transform:uppercase;
@@ -480,9 +481,10 @@
   <h2 class="rv">The only person in most rooms who has done both.</h2>
   <div class="about-grid">
     <div class="photo-stack rv">
-      <img class="main" src="assets/apaches.jpg" alt="AH-64 Apache helicopters in low-level flight">
+      <img class="main" src="assets/apaches.jpg" alt="Two AH-64 Apaches in low-level flight — CPT Arevalo flying lead aircraft, front seat. Photo: Bobby Triantos, Savannah, GA">
+      <span class="pcredit">PHOTO: BOBBY TRIANTOS · SAVANNAH, GA</span>
       <img class="da" src="assets/da-photo.jpg" alt="Captain Brian Arevalo, US Army">
-      <span class="cap">From the cockpit to the strategy table</span>
+      <span class="cap">Lead aircraft, front seat: CPT Arevalo</span>
     </div>
     <div class="about-copy">
       <p class="rv">Brian J. Arevalo is a former Army Captain and <b>AH‑64 Apache helicopter pilot</b> with 10 years of service spanning planning, operations, strategy, leadership, and mission execution in high‑stakes environments. He now applies that operational discipline to AI and technology strategy, helping commercial, aerospace, and defense organizations move from concept to capability.</p>
@@ -603,7 +605,7 @@
   <div class="cta-row rv">
     <a class="btn btn-gold" href="https://calendly.com/brianarevalo" target="_blank" rel="noopener">Schedule a Call</a>
   </div>
-  <p class="alt rv">Prefer email? <a href="mailto:brian114@live.com">brian114@live.com</a></p>
+  <p class="alt rv">Prefer email? <a href="mailto:brianarevaloconsulting@gmail.com">brianarevaloconsulting@gmail.com</a></p>
 </section>
 
 <!-- STATUS BAR -->
@@ -611,7 +613,7 @@
   <div class="wrap">
     <span>SYS: <b>ONLINE</b></span>
     <span>LOC: BERKELEY, CA · 37.87°N 122.27°W</span>
-    <span>TIME: <b id="clock">--:--</b> EST</span>
+    <span>TIME: <b id="clock">--:--</b> PT</span>
     <span>ARÉVALO STRATEGIES</span>
   </div>
 </div>
@@ -650,9 +652,9 @@
   }),{threshold:.6});
   document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 
-  // live clock (Eastern)
+  // live clock (Pacific)
   const clk=document.getElementById('clock');
-  const setClk=()=>{clk.textContent=new Date().toLocaleTimeString('en-US',{timeZone:'America/New_York',hour12:false,hour:'2-digit',minute:'2-digit'})};
+  const setClk=()=>{clk.textContent=new Date().toLocaleTimeString('en-US',{timeZone:'America/Los_Angeles',hour12:false,hour:'2-digit',minute:'2-digit'})};
   setClk();setInterval(setClk,30000);
 
   // mobile menu
