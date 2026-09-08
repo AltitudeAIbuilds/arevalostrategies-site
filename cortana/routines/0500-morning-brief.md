@@ -1,6 +1,6 @@
 # Cortana routine: Cortana 0500 morning brief
 
-Routine id `trig_01EJMq2XMVnWUxNoFntwLYig` · UTC cron `0 12 * * *` (Pacific 5:00am)
+Routine id `trig_01EJMq2XMVnWUxNoFntwLYig` · UTC cron `0 12 * * *` (Pacific 5:00am) · model `claude-opus-5`
 
 The live prompt is the routine itself. This file is the version-controlled copy with personal wiring removed. The `=== WIRING ===` block (account, calendar ids, doc id, Notion collection ids, CONFIG line grammar) lives in the private Notion page "Life OS automations (Claude runs)" and inside each routine.
 
@@ -16,13 +16,20 @@ DELIVERY: one Gmail send to <HUB_GMAIL>. Never <LEGACY_EMAIL>. Send within 15 mi
 GATHER, IN THIS ORDER (essential first, so a cutoff never costs the doc or the calendar):
 1. Run `TZ=America/Los_Angeles date` first. Build only for the actual current day.
 2. MASTER LIST doc (see WIRING). ESSENTIAL. Parse every marker line and the NEW section.
-3. CALENDARS, all seven listed in WIRING, today 00:00 through tomorrow 24:00, plus a 7 day look ahead for COMING UP. ESSENTIAL. Note every overlap between two busy events and every DUE event inside 72 hours.
+3. CALENDARS: run list_calendars, then read every calendar it returns (see WIRING), today 00:00 through tomorrow 24:00, plus a 7 day look ahead for COMING UP. ESSENTIAL. Note every overlap between two busy events and every DUE event inside 72 hours.
 4. GMAIL, read only: "newer_than:1d in:anywhere", "in:spam newer_than:2d", and "(from:notify@mail.notion.so OR from:notify@mail.notion.com) newer_than:1d" for Claire's agents. An email that supplies a date, amount or answer resolves a ❓ line. Skip marketing and social notifications entirely. ESSENTIAL.
 5. NOTION LEDGER (see WIRING): rows with Status ASAP, Today, Doing, Blocked, Waiting or Inbox, and any row Due inside 7 days. Silent mirror: create a row for each new doc line that has no row yet (Status Inbox, Source "doc", Priority by marker: ⛔ or ❗ P1, ★ P2, ☆ P3, ⚪ P4; ⏳ gets Status Waiting), set rows to Done for ✅ lines, and dedupe by title. A row whose Due date is more than 7 days past with no evidence of progress is NOT a today item: add "VERIFY at Sunday review" to its Notes and leave it. If Notion is slow, best effort and move on.
-6. CONFIG lines in the doc (bCourses feed, SMS): act as described in WIRING.
+6. CONFIG line in the doc (SMS): act as described in WIRING. If a subscribed bCourses calendar exists, mirror graded items as described under CALENDARS.
 7. TIME BLOCK TODAY on the primary calendar. The skeleton is fixed and never moves: morning ramp until 8:00, Cleaning Fairy 7:45, writing hour 8:00 on days with no 9:00 class, lunch, dinner 6:00 to 7:30, protected free time 9:00 to 10:00pm, reading 10:00. Classes and external appointments are immovable. Give every ⛔ and ❗ item and every deadline inside 48 hours a block in a real gap, buffers x1.5 (x2.0 for quant or accounting), colorId 9 MBA, 11 gym or VA, 10 properties, 4 family, 7 personal, with a short WHAT and WHY in the description. Never overlap a class. Never touch an event Brian created by hand. If no gap exists, say which item you could not place and propose the next real slot.
 8. BRIDGE check as described in WIRING.
 9. OPTIONAL, 2 minutes total: one web search for the day's top business or markets headline and one for defense tech or robotics. At most two stories a Haas MBA student with a defense and property background would use. If slow or the budget is tight, skip entirely and drop the section.
+
+ACCURACY CHECKS, mandatory before writing anything:
+- For every calendar date you name, compute the weekday with `date -d YYYY-MM-DD +%A` and use that name. A wrong weekday is a failed brief.
+- Build a scratch table of every event from every calendar in the window (title, start, end, calendar) and copy times from it verbatim. An external appointment on the primary calendar (VA visits, doctors, flights) can never be missing from the day plan.
+- Write "tonight" or "today" only when the due date equals today's date from step 1; otherwise write the weekday and date.
+- Deadlines come only from MBA calendar DUE events, a subscribed bCourses calendar, and the doc, never from memory. Points and due times are copied, not recalled.
+- The footer's run start time is the exact output of step 1 and the send time is the clock when you send.
 
 DELIVER AS HTML via the Gmail send tool's htmlBody (plain text version in body). Subject: "Cortana 0500 | [three short items separated by ·]".
 Palette: bg #FCFCFB, top band #F9F9F7, ink #2E2C27, ink-soft #6B6A63, grey #B4B3A8, hairline #E4E3DC, clay #C6613F. Headline Georgia serif about 34px; everything else -apple-system, Segoe UI, sans-serif. Email safe: inline styles only, tables for columns, no external images or fonts.

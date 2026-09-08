@@ -17,16 +17,16 @@ Cortana is the single capture, prioritize and execute loop behind Brian's day. T
 
 ### Config lines
 
-Two optional lines in the doc's `REFERENCE` section reconfigure the routines without a chat:
+Optional lines in the doc's `REFERENCE` section reconfigure the routines without a chat:
 
-- `bCourses feed: <ics url>` turns on the Canvas calendar feed diff (see `scripts/bcourses_feed_diff.py`). New graded items are added to the MBA calendar automatically.
+- bCourses is not a config line. The cloud environment's network policy blocks bcourses.berkeley.edu (proxy 403) and no Canvas connector exists, so the feed is subscribed in Google Calendar instead (Other calendars → From URL). Every run starts with list_calendars and reads every calendar returned; a subscribed feed whose name or id contains "bcourses" or "instructure" is picked up automatically and its graded items inside 21 days are mirrored onto the MBA calendar. `scripts/bcourses_feed_diff.py` stays as a parser for environments where the domain is reachable.
 - `SMS: <number>@<carrier gateway>` turns on text alerts for emergency and today items and deadlines inside 24 hours.
 
 ## Routines
 
 | Routine | UTC cron (PDT) | Reads | Delivers |
 |---|---|---|---|
-| [0500 morning brief](routines/0500-morning-brief.md) | `0 12 * * *` | master list, 7 calendars, Gmail (1 day + spam + partner's agent emails), ledger | HTML email + phone push; time blocks today |
+| [0500 morning brief](routines/0500-morning-brief.md) | `0 12 * * *` | master list, every calendar in list_calendars, Gmail (1 day + spam + partner's agent emails), ledger | HTML email + phone push; time blocks today |
 | [2200 night sweep](routines/2200-night-sweep.md) | `0 5 * * *` | same, plus a self audit of the morning send | HTML email + push; carries missed items forward; builds tomorrow |
 | [Sunday 0900 weekly review](routines/sunday-0900-weekly-review.md) | `0 16 * * 0` | same, 8 days out | HTML email + push; blocks the week, places gym, keep or drop list |
 
@@ -44,8 +44,9 @@ Every run has a hard time budget (10 minutes daily, 15 on Sunday), an essential-
 
 ## Not reachable from the cloud
 
-Apple Notes, iMessage, WhatsApp, Slack (until the connector is authorized), and the bCourses site itself. The routines say so in every footer rather than guessing. The old Apple Notes inbox and the Mac-resident Google Doc write-back bridge were the two single points of failure that took the previous version down; neither is on the critical path now.
+Apple Notes, iMessage, WhatsApp, Slack (until the connector is authorized), and bcourses.berkeley.edu (blocked by the environment network policy). The routines say so in every footer rather than guessing. The old Apple Notes inbox and the Mac-resident Google Doc write-back bridge were the two single points of failure that took the previous version down; neither is on the critical path now.
 
 ## Changelog
 
+- 2026-09-08 (later) Routines moved to Opus at Brian's request after a Haiku run exited in 41 seconds without sending and a second run omitted a VA appointment; mandatory accuracy checks added to every prompt; bCourses path changed to a Google Calendar subscription after confirming the domain is blocked from the cloud.
 - 2026-09-08 Rebuilt after five dark days. Three routines replace four; all seven calendars read on every run (the previous version only read the primary calendar and missed every class); night sweep audits the morning send; config lines added; DST one-shot added.
