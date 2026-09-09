@@ -48,6 +48,7 @@ Apple Notes, iMessage, WhatsApp, Slack (until the connector is authorized), and 
 
 ## Changelog
 
+- 2026-09-09 (morning) First Opus morning brief under the single-send rule went out exactly once with correct weekdays and deadlines, but the run fired at 5:02am and did not finish until 8:28am; the email landed at 8:28am while the footer reported 5:18am. The build session was stalled over the same window, so this was a platform stall rather than a prompt defect. No prompt change; logged for the reliability count.
 - 2026-09-08 (night) First Opus night sweep delivered on time (run start 10:11pm, sent 10:15pm Pacific) but went out twice: the first copy carried the HTML inside the plain-text body, and the model re-sent a corrected copy. Every prompt now names the send tool fields explicitly and forbids a second send in the same run.
 - 2026-09-08 (later) Routines moved to Opus at Brian's request after a Haiku run exited in 41 seconds without sending and a second run omitted a VA appointment; mandatory accuracy checks added to every prompt; bCourses path changed to a Google Calendar subscription after confirming the domain is blocked from the cloud.
 - 2026-09-08 Rebuilt after five dark days. Three routines replace four; all seven calendars read on every run (the previous version only read the primary calendar and missed every class); night sweep audits the morning send; config lines added; DST one-shot added.
