@@ -26,7 +26,7 @@ Optional lines in the doc's `REFERENCE` section reconfigure the routines without
 
 | Routine | UTC cron (PDT) | Reads | Delivers |
 |---|---|---|---|
-| [0500 morning brief](routines/0500-morning-brief.md) | `0 12 * * *` | master list, every calendar in list_calendars, Gmail (1 day + spam + partner's agent emails), ledger | HTML email + phone push; time blocks today |
+| [0500 morning brief](routines/0500-morning-brief.md) | `0 12 * * *` | master list, the seven wired calendars read by id, Gmail (1 day + spam + partner's agent emails), ledger | HTML email + phone push; time blocks today |
 | [2200 night sweep](routines/2200-night-sweep.md) | `0 5 * * *` | same, plus a self audit of the morning send | HTML email + push; carries missed items forward; builds tomorrow |
 | [Sunday 0900 weekly review](routines/sunday-0900-weekly-review.md) | `0 16 * * 0` | same, 8 days out | HTML email + push; blocks the week, places gym, keep or drop list |
 
@@ -48,6 +48,7 @@ Apple Notes, iMessage, WhatsApp, Slack (until the connector is authorized), and 
 
 ## Changelog
 
+- 2026-09-10 (morning) The scheduled 5:02am run stalled on a permission prompt for the calendar list tool and sent nothing; the Sep 9 brief was three hours late for the same reason. The run was interrupted and re-fired by hand at 6:15am and delivered clean at 6:21am. All three prompts now read the seven known calendars by id and never call the calendar list tool before the send; only the Sunday review calls it, after its send, to detect a new bCourses subscription. The footer send time now comes from a fresh clock read right before the send.
 - 2026-09-09 (morning) First Opus morning brief under the single-send rule went out exactly once with correct weekdays and deadlines, but the run fired at 5:02am and did not finish until 8:28am; the email landed at 8:28am while the footer reported 5:18am. The build session was stalled over the same window, so this was a platform stall rather than a prompt defect. No prompt change; logged for the reliability count.
 - 2026-09-08 (night) First Opus night sweep delivered on time (run start 10:11pm, sent 10:15pm Pacific) but went out twice: the first copy carried the HTML inside the plain-text body, and the model re-sent a corrected copy. Every prompt now names the send tool fields explicitly and forbids a second send in the same run.
 - 2026-09-08 (later) Routines moved to Opus at Brian's request after a Haiku run exited in 41 seconds without sending and a second run omitted a VA appointment; mandatory accuracy checks added to every prompt; bCourses path changed to a Google Calendar subscription after confirming the domain is blocked from the cloud.
